@@ -1,0 +1,28 @@
+<section class="container">
+<div class="col">
+    <div class="card my-1" style="width: 18.3rem; ">
+  <div class="card-body bg-light text-center">
+      <h3 class="card-title text-center">Create Your <span>Alert!</span></h3>
+  </div>
+  <form id="alert-submit">
+  <ul class="list-group list-group-flush">
+   <li class="list-group-item">
+   <span for="img" aria-label="stoploss">🎟 Ticker: <input class="form-input" type="text" id="ticker" required="" /></span>
+   
+   </li>
+    <li class="list-group-item"><span for="img" aria-label="price">🛍</span> <select class="form-input" type="text" id="entry" required="">
+                    <option value="none" selected disabled hidden>SELECT AN OPTION</option>
+                    <option value="LONG">Long ⬆ </option>
+                    <option value="SHORT">Short ⬇</option>
+                </select>
+    <li class="list-group-item"><span for="img" aria-label="price">💲</span> Entry Price: <input class="form-input" type="text" id="entry-price" required="" /></li>
+    <li class="list-group-item"><span for="img" aria-label="target">🎯</span> Target: <input class="form-input" type="text" id="target" required="" /> </li>
+    <li class="list-group-item"><span for="img" aria-label="stoploss">🛑</span> Stoploss: <input class="form-input" type="text" id="stoploss" required="" /></li>
+   <li class="list-group-item"><button class="btn btn-primary" type="submit" value="Submit">Submit</button></li>
+  </ul>
+  </form>
+</div>
+  </div>
+       
+    </section>
+<script src='/js/createalert.js'></script>

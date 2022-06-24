@@ -1,0 +1,120 @@
+<table class="table table-responsive border my-2">
+  <thead class="table-dark">
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Ticker</th>
+            <th scope="col">Entry(LONG/SHORT)</th>
+            <th scope="col">Entry | Target | Stoploss</th>
+            {{!-- <th scope="col">Current Price</th> --}}
+            <th scope="col">Status</th>
+            <th scope="col">Time</th>
+            {{#if username}}
+            <th scope="col"></th>
+            {{/if}}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{alert.user.username}}</td>
+            <td><a data-id="{{id}}" href="/alert/{{alert.id}}">{{alert.ticker}}</a></td>
+            <td>{{alert.entry}}</td>
+            <td><span for="img" aria-label="price">💲</span>{{alert.entry_price}} <span for="img" aria-label="target">🎯</span>{{alert.target}}<span for="img" aria-label="stoploss">🛑</span>{{alert.stoploss}}  
+            </td>
+            <td>{{alert.status}} 
+               {{#if closed_price}}
+              <span>@{{alert.closed_price}}</span> <span>{{alert.profit_or_loss}}</span>
+              {{/if}}
+              </td>
+            <td>{{format_time alert.createdAt}} {{format_date alert.createdAt}}</td>
+              
+            {{!-- <th scope="col"><a id="delete-alert" data-id="{{id}}" href="/alert/{{alert.id}}">Delete</a>
+            
+            </th> --}}
+            
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+
+
+
+
+      {{!-- table create alert --}}
+       <h1 class="text-center">Create Your <span>Alert!</span></h1>
+        <form class="form">
+            <table class="table table-responsive border my-2">
+  <thead class="table-dark">
+          <tr>
+            <th scope="col">Ticker</th>
+            <th scope="col">Entry(LONG/SHORT)</th>
+            <th scope="col">Entry Price</th>
+            <th scope="col">Target</th>
+            <th scope="col">Stoploss</th>
+            {{!-- <th scope="col">Current Price</th> --}}
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <input class="form-input" type="text" id="ticker" required />
+            </td>
+            <td>
+                <select class="form-input" type="text" id="entry" required>
+                    <option value="none" selected disabled hidden>SELECT AN OPTION</option>
+                    <option value="LONG">Long</option>
+                    <option value="SHORT">Short</option>
+                    {{!-- <option value="BUY TO CLOSE">Buy To Close</option> --}}
+                </select>
+            </td>
+            <td>
+                <input class="form-input" type="text" id="entry-price" required />
+            </td>
+            <td>
+                <input class="form-input" type="text" id="target" required /> 
+            </td>
+            <td>
+                <input class="form-input" type="text" id="stoploss" required />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+       <div class="form-group text-end">
+                <input id="alert-submit" class="btn btn-primary" type="submit" value="Submit">
+        </div>
+        </form>
+
+
+        {{!-- closed table  --}}
+
+        <h1 class="text-center">Closing The Alert</h1>
+        <form class="form">
+            <table class="table border my-2">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Sell/Buy To Closed</th>
+            <th scope="col">Closed Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+                <select class="form-input" type="text" id="closed-entry" required>
+                    <option value="none" selected disabled hidden>SELECT AN OPTION</option>
+                    <option value="SELL TO CLOSE">Sell To Close</option>
+                    <option value="BUY TO CLOSE">Buy To Close</option>
+                </select>
+            </td>
+            <td>
+                <input class="form-input" type="text" id="closed-price" required />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+       <div class="form-group text-end">
+                <input id="close-alert-submit" data-id="{{id}}" class="btn btn-primary" type="submit" value="Submit">
+        </div>
+        </form>

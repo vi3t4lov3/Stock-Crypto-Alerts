@@ -1,0 +1,67 @@
+<section class="container">
+<section class="container">
+<div class="col">
+    <div class="card my-1" style="width: 18.3rem; ">
+  <div class="card-body bg-light text-center">
+      <h3 class="card-title text-center">Create Your <span>Alert!</span></h3>
+  </div>
+  <ul class="list-group list-group-flush">
+   <li class="list-group-item">
+   <span for="img" aria-label="stoploss">🎟 Ticker: <input class="form-input" type="text" id="ticker" required /></span>
+   
+   </li>
+    <li class="list-group-item"><span for="img" aria-label="price">🛍</span> <select class="form-input" type="text" id="entry" required>
+                    <option value="none" selected disabled hidden>SELECT AN OPTION</option>
+                    <option value="LONG">Long ⬆ </option>
+                    <option value="SHORT">Short ⬇</option>
+                </select>
+    <li class="list-group-item"><span for="img" aria-label="price">💲</span> Entry Price: <input class="form-input" type="text" id="entry-price" required /></li>
+    <li class="list-group-item"><span for="img" aria-label="price">💲</span> Current Price: {{current_price}}</li>
+    <li class="list-group-item"><span for="img" aria-label="target">🎯</span> Target: <input class="form-input" type="text" id="target" required /> </li>
+    <li class="list-group-item"><span for="img" aria-label="stoploss">🛑</span> Stoploss: <input class="form-input" type="text" id="stoploss" required /></li>
+   <li class="list-group-item"><input id="alert-submit" class="btn btn-primary" type="submit" value="Submit"></li>
+  </ul>
+</div>
+  </div>
+       
+    </section>
+
+
+        <h1 class="text-center">Create Your <span>Alert!</span></h1>
+        <form class="form">
+            <table class="table border my-2">
+  <thead class="table-dark">
+          <tr>
+            {{!-- <th scope="col">Ticker</th> --}}
+            <th scope="col">Sell/Buy To Closed</th>
+            <th scope="col">Closed Price</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            {{!-- <td>
+                <input class="form-input" type="text" id="ticker" required />
+            </td> --}}
+            <td>
+                <select class="form-input" type="text" id="closed-entry" required="">
+                    <option value="none" selected disabled hidden>SELECT AN OPTION</option>
+                    {{!-- <option value="LONG">Long</option> --}}
+                    <option value="SELL TO CLOSE">Sell To Close</option>
+                    {{!-- <option value="SHORT">Short</option> --}}
+                    <option value="BUY TO CLOSE">Buy To Close</option>
+                </select>
+            </td>
+            <td>
+                <input class="form-input" type="text" id="closed-price" required />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+       <div class="form-group text-end">
+                <input id="close-alert-submit" class="btn btn-primary" type="submit" value="Submit">
+        </div>
+        </form>
+    </section>
+<script src='./js/closedalert.js'></script>
+

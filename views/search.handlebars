@@ -1,0 +1,58 @@
+<section class="container px-4 my-2">
+  <ul id="symbol-list">
+        </ul>
+<div class="row row-cols-auto">
+  {{#if tickers}}
+  {{#each tickers as |ticker|}}
+  <div class="col">
+    <div class="card my-1" style="width: 18.3rem; ">
+  <div class="card-body bg-light text-center">
+    <h5 class="card-title"><a class="unlink" data-id="{{ticker.id}}" href="/alert/{{ticker.id}}"><span class="text-dark">{{ticker.ticker}}</span></a> 
+     {{#if closed_price}}
+      <span class="text-danger">({{status}})</span>
+      {{else}}
+       <span class="text-success">({{status}})</span>
+      {{/if}}
+    </h5>
+  </div>
+  
+<ul class="list-group list-group-flush">
+      <li class="list-group-item">
+   <span for="img" aria-label="stoploss">📅 Open Day: </span>{{format_date ticker.createdAt}}
+   </li>
+   <li class="list-group-item">
+   <span for="img" aria-label="stoploss">⏰ Open At: </span>{{format_time ticker.createdAt}}
+   </li>
+    <li class="list-group-item"><span for="img" aria-label="price">🛍</span> Open : {{ticker.entry}}</li>
+    <li class="list-group-item"><span for="img" aria-label="price">💲</span> Entry Price: {{entry_price}}</li>
+    <li class="list-group-item"><span for="img" aria-label="price">💲</span> Current Price: {{current_price}}</li>
+    <li class="list-group-item"><span for="img" aria-label="target">🎯</span> Target: {{target}}</li>
+    <li class="list-group-item"><span for="img" aria-label="stoploss">🛑</span> Stoploss: {{stoploss}}</li>
+   {{#if closed_price}} 
+   <li class="list-group-item bg-warning">
+   </li>
+    <li class="list-group-item"><span for="img" aria-label="price">🛍</span> {{close_entry}}</li>
+   <li class="list-group-item"><span for="img" aria-label="stoploss">💰</span>Closed Price: {{closed_price}}</li>
+   
+   
+   <li class="list-group-item">
+   <span for="img" aria-label="stoploss">🗓 Closed Day: </span>{{format_date updatedAt}}
+   </li>
+    <li class="list-group-item">
+   <span for="img" aria-label="stoploss">⏱ Closed Time: </span>{{format_time updatedAt}}
+   </li>
+   <li class="list-group-item">
+   <span for="img" aria-label="stoploss">⏱ Gain | Loss: </span>{{profit_or_loss}}%
+   </li>
+   {{/if}}
+   <li class="list-group-item"><span for="img" aria-label="stoploss">✍️</span> Alert By: {{ticker.user.username}}</li>
+  </ul>
+</div>
+  </div>
+
+  {{/each}}
+  {{else}}
+  <h4 class="text-center my-2 text-danger">Sorry! The ticker your enter, we don't have any alert at this time! We will keep an eye for you.  </h4>
+  {{/if}}
+</div>
+</section>

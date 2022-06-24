@@ -1,0 +1,51 @@
+<div class="container">
+        <div class="row row-login">
+            <div class="col-10 col-sm-6 col-md-4 offset-1 offset-sm-3 offset-md-4">
+                <h1 class="text-center">Create A New Account</h1>
+                <div>
+                    <div class="card-body">
+                        <h5 class="text-danger text-center">Please fill out the information below</h5>
+                        <form id="signupform">
+
+                          <div class="form-group mb-3">
+                              <label class="form-label">Username </label>
+                              <input 
+                              class="form-control" 
+                              type="text" 
+                              name="username"
+                              required=""
+                              placeholder="Username" 
+                              id="create_username" />
+                            </div>
+
+                            <div class="form-group mb-3">
+                              <label class="form-label">Email </label>
+                              <input 
+                              class="form-control" 
+                              type="text" 
+                              name="email"
+                              placeholder="Your Email" 
+                              required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email"
+                              id="create_email" />
+                            </div>
+                            <div class="form-group mb-3">
+                              <label class="form-label">Password </label>
+                              <input 
+                              class="form-control" 
+                              type="password" 
+                              name="pass"
+                              required=""
+                              placeholder="Your Password" 
+                              id="create_password" />
+                            </div>
+                            
+                            <button class="btn btn-success d-block w-100" type="submit">Register </button>
+                            </form>
+                            <p class="text-center">Already have an account? <a href="/login" class="text-success fw-bold">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="/js/signup.js"></script>

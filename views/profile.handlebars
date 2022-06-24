@@ -1,0 +1,34 @@
+
+{{#each ids as |profile|}}
+<div class="row">
+  <div class="col-auto">
+    <h2>Hello, <a data-id="{{id}}" href="/profile/{{profile.id}}"></a>{{profile.username}}!</h2>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Change Your Information Below</h3>
+
+  <form>
+      <div class="form-group">
+        <label for="">Username:</label>
+        <input class="form-input" type="text" id="user-name" name="user-name" />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input class="form-input" id="change-email" name="project-desc"></input>
+      </div>
+       <div class="form-group">
+        <label for="pass">Pass:</label>
+        <input class="form-input" id="change-pass" required=""></input>
+      </div>
+      <div class="form-group">
+        <button id="change-profile" data-id="{{id}}" type="submit" class="btn btn-primary">Update Profile</button>
+      </div>
+   </form>
+  </div>
+
+  {{/each}}
+
+<script src="/js/profile.js"></script>

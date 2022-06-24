@@ -1,0 +1,5 @@
+-- DROP DATABASE
+DROP DATABASE IF EXISTS stock_market_alerts;
+
+-- CREATE DATABASE
+CREATE DATABASE stock_market_alerts;

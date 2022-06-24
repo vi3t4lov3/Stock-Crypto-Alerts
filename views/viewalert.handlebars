@@ -1,0 +1,83 @@
+<div class="card my-3" style="width: 18rem; ">
+  <div class="card-body bg-light text-center">
+    <h5 class="card-title text-dark ">{{ticker}} 
+       {{#if closed_price}}
+      <span class="text-danger">({{status}})</span>
+      {{else}}
+       <span class="text-success">({{status}})</span>
+      {{/if}}
+    </h5>
+  </div>
+  <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+   <span for="img" aria-label="stoploss">📅 Open Day: </span>{{format_date createdAt}}
+   </li>
+   <li class="list-group-item">
+   <span for="img" aria-label="stoploss">⏰ Open At: </span>{{format_time createdAt}}
+   </li>
+    <li class="list-group-item"><span for="img" aria-label="price">🛍</span> Open : {{entry}}</li>
+    <li class="list-group-item"><span for="img" aria-label="price">💲</span> Entry Price: {{entry_price}}</li>
+    <li class="list-group-item"><span for="img" aria-label="price">💲</span> Current Price: {{current_price}}</li>
+    <li class="list-group-item"><span for="img" aria-label="target">🎯</span> Target: {{target}}</li>
+    <li class="list-group-item"><span for="img" aria-label="stoploss">🛑</span> Stoploss: {{stoploss}}</li>
+   {{#if closed_price}} 
+   <li class="list-group-item bg-warning">
+   </li>
+    <li class="list-group-item"><span for="img" aria-label="price">🛍</span> {{close_entry}}</li>
+   <li class="list-group-item"><span for="img" aria-label="stoploss">💰</span>Closed Price: {{closed_price}}</li>
+   
+   
+   <li class="list-group-item">
+   <span for="img" aria-label="stoploss">🗓 Closed Day: </span>{{format_date updatedAt}}
+   </li>
+    <li class="list-group-item">
+   <span for="img" aria-label="stoploss">⏱ Closed Time: </span>{{format_time updatedAt}}
+   </li>
+   {{/if}}
+   <li class="list-group-item"><span for="img" aria-label="stoploss">✍️</span> Alert By: {{user.username}}</li>
+  </ul>
+  {{#if canDelete}}
+  <div class="card-body text-center">
+      <button id="delete-alert" data-id="{{id}}"  type="button" class="btn btn-link" >Delete</button>
+      
+  </div>
+  {{/if}}
+</div>
+{{#if closed_price}} 
+
+{{else}}
+  {{#if canDelete}}
+  <hr>
+<section class="container">
+<div class="col">
+    <div class="card my-1" style="width: 18.3rem; ">
+  <div class="card-body bg-light text-center">
+      <h3 class="card-title text-center">Closed Your Alert!</h3>
+  </div>
+  <form>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><span for="img" aria-label="price">🛍</span> 
+    <select class="form-input" type="text" id="closed-entry" required="">
+            <option value="none" selected disabled hidden>SELECT AN OPTION</option>
+            <option value="SELL TO CLOSE">Sell To Close (Long⬆)</option>
+            <option value="BUY TO CLOSE">Buy To Close (Short⬇)</option>
+    </select>
+    <li class="list-group-item"><span for="img" aria-label="price">💲</span> Enter Close Price: <input class="form-input" type="text" id="closed-price" required="" />
+    </li>
+    <li class="list-group-item">
+      <input id="close-alert-submit" data-id="{{id}}" class="btn btn-primary text-end" type="submit" value="Submit">
+    </li>
+    
+  </ul>
+  </form>
+</div>
+  </div>
+       
+    </section>
+    {{ else}}
+    <center> Only <b>{{user.username}}</b> can closed this alert</center>
+      {{/if}}
+<script src='/js/closedalert.js'></script>
+{{/if}}
+
+<script src='/js/deletealert.js'></script>
